@@ -35,12 +35,12 @@ extensionConverter
     const launcher = wdioLauncherFactory.withExtensionLoaded({
       encodedExtension: convertedExtension
     })
-
-    launcher.run().then(code => {
-      process.exit(code)
-    }, (error) => {
-      console.error('Launcher failed to start the test: ', error.stacktrace)
-      process.exit(1)
-    })
+    launcher.run()
+//    launcher.run().then(code => {
+//      process.exit(code)
+//    }, (error) => {
+//      console.error('Launcher failed to start the test: ', error.stacktrace)
+//      process.exit(1)
+//    })
   })
   .then(extensionConverter.cleanCrxAndPemFiles)
