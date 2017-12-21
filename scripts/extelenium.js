@@ -28,6 +28,8 @@ const wdioConfigFilePath = yargs.c || yargs.wdioConfig
 const extensionConverter = new ExtensionConverter({chromeExtensionPath})
 const wdioLauncherFactory = new WdioLauncherFactory({wdioConfigFilePath})
 
+
+console.log("running extensionConverter");
 extensionConverter
   .toCrxFile()
   .then(extensionConverter.toBase64String)
@@ -35,12 +37,12 @@ extensionConverter
     const launcher = wdioLauncherFactory.withExtensionLoaded({
       encodedExtension: convertedExtension
     })
-    launcher.run()
-//    launcher.run().then(code => {
-//      process.exit(code)
-//    }, (error) => {
-//      console.error('Launcher failed to start the test: ', error.stacktrace)
-//      process.exit(1)
-//    })
+    launcher.run().then(code => {
+      console.log("JUST did launcher.run()");
+      process.exit(code)
+    }, (error) => {
+      console.error('Launcher failed to start the test: ', error.stacktrace)
+      process.exit(1)
+    })
   })
   .then(extensionConverter.cleanCrxAndPemFiles)
