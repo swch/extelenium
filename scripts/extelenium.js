@@ -37,6 +37,7 @@ extensionConverter
     const launcher = wdioLauncherFactory.withExtensionLoaded({
       encodedExtension: convertedExtension
     })
+    console.log("about to run launcher.run()");
     launcher.run().then(code => {
       console.log("JUST did launcher.run()");
       process.exit(code)
