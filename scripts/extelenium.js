@@ -37,14 +37,14 @@ extensionConverter
     const launcher = wdioLauncherFactory.withExtensionLoaded({
       encodedExtension: convertedExtension
     })
-    console.log("about to run launcher.run()");
-    launcher.run().then(code => {
-      console.log("JUST did launcher.run()");
-      process.exit(code)
-      console.log("lksdfjlksdj");
-    }, (error) => {
-      console.error('Launcher failed to start the test: ', error.stacktrace)
-      process.exit(1)
-    })
+//    console.log("about to run launcher.run()");
+//    launcher.run().then(code => {
+//      console.log("JUST did launcher.run()");
+//      process.exit(code)
+//      console.log("lksdfjlksdj");
+//    }, (error) => {
+//      console.error('Launcher failed to start the test: ', error.stacktrace)
+//      process.exit(1)
+//    })
   })
   .then(extensionConverter.cleanCrxAndPemFiles)
