@@ -29,7 +29,6 @@ const extensionConverter = new ExtensionConverter({chromeExtensionPath})
 const wdioLauncherFactory = new WdioLauncherFactory({wdioConfigFilePath})
 
 
-console.log("running extensionConverter");
 extensionConverter
   .toCrxFile()
   .then(extensionConverter.toBase64String)
@@ -37,12 +36,8 @@ extensionConverter
     const launcher = wdioLauncherFactory.withExtensionLoaded({
       encodedExtension: convertedExtension
     })
-    console.log("about to run launcher.run()");
-    console.trace();
     launcher.run().then(code => {
-      console.log("JUST did launcher.run()");
       process.exit(code)
-      console.log("lksdfjlksdj");
     }, (error) => {
       console.error('Launcher failed to start the test: ', error.stacktrace)
       process.exit(1)
