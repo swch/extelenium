@@ -10,11 +10,6 @@
     "url": "https://github.com/oliverswitzer/extelenium"
   },
   "main": "scripts/extelenium.js",
-  "scripts": {
-    "test": "babel-node spec/run.js && scripts/extelenium.js -e my-sample-extension -c wdio.conf.js",
-    "unit-tests": "babel-node spec/run.js",
-    "feature-tests": "scripts/extelenium.js -e my-sample-extension -c wdio.conf.js"
-  },
   "bin": {
     "extelenium": "scripts/extelenium.js"
   },
